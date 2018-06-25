@@ -53,12 +53,14 @@ public class Add extends HttpServlet {
     public void processRequest(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException
     {
         try{
-           HttpSession session=req.getSession();
+           HttpSession session=req.getSession(); // session demo 
+           //cookie demo
            String cookie="cookie 1";
-            Cookie c=new Cookie("cookie",cookie);
-           
+           Cookie c=new Cookie("cookie1",cookie);
+            res.addCookie(c);
+            
            String str="Session value";
-           session.setAttribute("name",str);
+           session.setAttribute("name",str);//session setting 
          int i=Integer.parseInt(req.getParameter("no1"));
          int j=Integer.parseInt(req.getParameter("no2"));
          int k=i+j;

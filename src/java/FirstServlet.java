@@ -23,8 +23,8 @@ public class FirstServlet extends HttpServlet {
     public void service(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
         System.out.println("First Servlet");
-         
         PrintWriter out= res.getWriter();
+        
         out.println("<script>alert('first servlet');</script>");
         
      //  RequestDispatcher rd=req.getRequestDispatcher("SecondServlet");

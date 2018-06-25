@@ -7,6 +7,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,14 +28,28 @@ public class SecondServlet extends HttpServlet {
     @Override
     public void service(HttpServletRequest req,HttpServletResponse res)throws IOException
   {
+      //cookie retrieving 
+      
+      Cookie cookies[]= req.getCookies();
+        
       HttpSession session= req.getSession();
-      String str=session.getAttribute("name").toString();
+      String str=session.getAttribute("name").toString();// sesssion fetching 
       
       PrintWriter out= res.getWriter();
       out.println("This is second Servlet");
       out.println(str);
+      
+      String cook=null;
+      for(Cookie c : cookies)
+      {
+          if(c.getName().equals("cookie1"))
+          {
+              cook=c.getValue();
+          }
+      }
+      out.println(cook);
   }
-
+       
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
