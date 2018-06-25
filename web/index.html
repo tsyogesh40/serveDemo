@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Servlet Demo App</title>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid text-center">
+  <div class="jumbotron">
+    <h1>Servlets Demo App</h1>     
+    <p>Servlets addition</p>
+  </div>
+        </div>
+        <div class="container">
+         <form action="Add" method="post">
+        <div class="form-group">
+    <label for="no1">Number 1:</label>
+    <input type="text" class="form-control" name="no1">
+  </div>
+  <div class="form-group">
+    <label for="no2">Number 2:</label>
+    <input type="text" class="form-control" name="no2">
+  </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+            
+            <form action="FirstServlet">
+                <button type="submit" class="btn btn-default">First Servlet</button>
+            </form>
+</div>
+   
+    </body>
+</html>
