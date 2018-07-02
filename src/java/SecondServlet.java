@@ -6,6 +6,8 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +31,8 @@ public class SecondServlet extends HttpServlet {
     public void service(HttpServletRequest req,HttpServletResponse res)throws IOException
   {
       //cookie retrieving 
-      
+      res.setContentType("text/html");  
+
       Cookie cookies[]= req.getCookies();
         
       HttpSession session= req.getSession();
@@ -48,7 +51,21 @@ public class SecondServlet extends HttpServlet {
           }
       }
       out.println(cook);
-  }
+      
+      String addr=req.getRemoteAddr();
+      out.println(addr);
+      
+   ServletContext context=getServletContext();  
+Enumeration<String> e=context.getInitParameterNames();  
+      
+    String stri="";  
+    while(e.hasMoreElements()){  
+    stri=e.nextElement();  
+    out.print("<br> "+context.getInitParameter(stri));  
+}  
+
+     
+ }
        
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
